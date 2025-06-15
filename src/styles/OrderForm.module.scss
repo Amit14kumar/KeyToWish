@@ -1,0 +1,27 @@
+.form {
+  padding: 12px;
+}
+
+.fileInput {
+  border: 1px dashed #ccc;
+  border-radius: 4px;
+  padding: 12px;
+  min-height: 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+  &:hover {
+    border-color: #009688;
+  }
+}
+
+.input {
+  margin-top: 8px;
+}
+
+@media (max-width: 600px) {
+  .form {
+    padding: 8px 0;
+  }
+}
