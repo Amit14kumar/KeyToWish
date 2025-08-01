@@ -2,6 +2,8 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/api/createOrder": "pages/api/createOrder.js",
-  "/order": "pages/order.js"
+  "/": "pages/index.js",
+  "/order": "pages/order.js",
+  "/category": "pages/category.js",
+  "/category/birthday/birthday": "pages/category/birthday/birthday.js"
 }
