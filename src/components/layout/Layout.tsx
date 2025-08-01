@@ -1,7 +1,7 @@
 import React from 'react';
-import Box from '@mui/material/Box';
 import AppBar from './AppBar';
 import Footer from './Footer';
+import { Box } from '@mui/material';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -9,13 +9,20 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <>
+    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <AppBar />
-      <Box component="main" sx={{ minHeight: 'calc(100vh - 144px)' }}>
+      <Box 
+        component="main" 
+        sx={{ 
+          flexGrow: 1,
+          display: 'flex',
+          flexDirection: 'column',
+        }}
+      >
         {children}
       </Box>
       <Footer />
-    </>
+    </Box>
   );
 };
 

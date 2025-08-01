@@ -1,5 +1,6 @@
 .form {
   padding: 12px;
+  width: 100%;
 }
 
 .fileInput {
@@ -10,14 +11,21 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  
+  margin-top: 8px;
+  margin-bottom: 8px;
+
   &:hover {
     border-color: #009688;
   }
 }
 
 .input {
-  margin-top: 8px;
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  background-color: #f9f9f9;
 }
 
 @media (max-width: 600px) {
