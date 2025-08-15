@@ -20,62 +20,26 @@ import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import Link from 'next/link';
 import { useCart } from '@/contexts/CartContext';
 
-// Example birthday templates
-const birthdayTemplates = [
-  { 
-    id: 'b1', 
-    name: "Birthday Balloons", 
-    description: "Colorful balloons for a joyful birthday celebration",
-    image: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&q=80&w=400&h=250",
-    price: "$4.99"
-  },
-  { 
-    id: 'b2', 
-    name: "Birthday Cake", 
-    description: "Beautiful cake design for the special day",
-    image: "https://images.unsplash.com/photo-1578922746376-051049a0bdf2?auto=format&fit=crop&q=80&w=400&h=250",
-    price: "$4.99"
-  },
-  { 
-    id: 'b3', 
-    name: "Birthday Party", 
-    description: "Festive party theme for birthdays",
-    image: "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&q=80&w=400&h=250",
-    price: "$4.99"
-  },
-  { 
-    id: 'b4', 
-    name: "Birthday Gifts", 
-    description: "Presents and gifts themed card",
-    image: "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&q=80&w=400&h=250",
-    price: "$4.99"
-  },
-  { 
-    id: 'b5', 
-    name: "Confetti Birthday", 
-    description: "Colorful confetti celebration design",
-    image: "https://images.unsplash.com/photo-1527359443443-84a48aec73d2?auto=format&fit=crop&q=80&w=400&h=250",
-    price: "$4.99"
-  },
-  { 
-    id: 'b6', 
-    name: "Birthday Candles", 
-    description: "Glowing candles for birthday wishes",
-    image: "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&q=80&w=400&h=250",
-    price: "$4.99"
-  },
-];
+// New birthday card template
+const birthdayCard = {
+  id: 'birthday-card-1',
+  name: "Birthday Card 1.0",
+  description: "Animated confetti birthday card with personalized message and interactive effects",
+  image: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&q=80&w=400&h=250",
+  price: "$4.99",
+  features: ["Animated confetti", "Personalized name", "Interactive clicks"]
+};
 
 const BirthdayCategoryPage = () => {
   const theme = useTheme();
   const { addItem } = useCart();
 
-  const handleAddToCart = (template: any) => {
+  const handleAddToCart = () => {
     addItem({
-      id: template.id,
-      name: template.name,
-      price: parseFloat(template.price.replace('$', '')),
-      image: template.image,
+      id: birthdayCard.id,
+      name: birthdayCard.name,
+      price: parseFloat(birthdayCard.price.replace('$', '')),
+      image: birthdayCard.image,
       category: 'Birthday',
     });
   };
@@ -195,91 +159,136 @@ const BirthdayCategoryPage = () => {
               color: 'text.secondary'
             }}
           >
-            Choose a template to customize for your special someone
+            Choose our premium animated birthday card template
           </Typography>
 
           <Grid container spacing={3}>
-            {birthdayTemplates.map((template) => (
-              <Grid item xs={12} sm={6} md={4} key={template.id}>
-                <Card 
-                  elevation={0}
-                  sx={{
-                    height: '100%',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    borderRadius: 3,
-                    overflow: 'hidden',
-                    transition: 'all 0.3s ease',
-                    border: '1px solid',
-                    borderColor: 'divider',
-                    '&:hover': {
-                      transform: 'translateY(-8px)',
-                      boxShadow: '0 12px 30px rgba(0,0,0,0.12)',
-                      '& .MuiCardMedia-root': {
-                        transform: 'scale(1.05)'
-                      }
+            <Grid item xs={12} sm={6} md={4}>
+              <Card 
+                elevation={0}
+                component={Link}
+                href="/cards/birthday-card-1"
+                sx={{
+                  height: '100%',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  borderRadius: 3,
+                  overflow: 'hidden',
+                  transition: 'all 0.3s ease',
+                  border: '1px solid',
+                  borderColor: 'divider',
+                  textDecoration: 'none',
+                  color: 'inherit',
+                  cursor: 'pointer',
+                  '&:hover': {
+                    transform: 'translateY(-8px)',
+                    boxShadow: '0 12px 30px rgba(0,0,0,0.12)',
+                    '& .MuiCardMedia-root': {
+                      transform: 'scale(1.05)'
                     }
-                  }}
-                >
-                  <Box sx={{ position: 'relative', overflow: 'hidden' }}>
-                    <CardMedia
-                      component="img"
-                      height={200}
-                      image={template.image}
-                      alt={template.name}
-                      sx={{ 
-                        transition: 'transform 0.5s ease',
-                      }}
-                    />
-                    <Box 
-                      sx={{ 
-                        position: 'absolute', 
-                        top: 12, 
-                        right: 12, 
-                        bgcolor: 'primary.main',
-                        color: 'white',
-                        py: 0.5,
-                        px: 1.5,
-                        borderRadius: 1,
-                        fontSize: '0.875rem',
-                        fontWeight: 'medium'
-                      }}
-                    >
-                      {template.price}
-                    </Box>
+                  }
+                }}
+              >
+                <Box sx={{ position: 'relative', overflow: 'hidden' }}>
+                  <CardMedia
+                    component="img"
+                    height={200}
+                    image={birthdayCard.image}
+                    alt={birthdayCard.name}
+                    sx={{ 
+                      transition: 'transform 0.5s ease',
+                    }}
+                  />
+                  <Box 
+                    sx={{ 
+                      position: 'absolute', 
+                      top: 12, 
+                      right: 12, 
+                      bgcolor: 'primary.main',
+                      color: 'white',
+                      py: 0.5,
+                      px: 1.5,
+                      borderRadius: 1,
+                      fontSize: '0.875rem',
+                      fontWeight: 'medium'
+                    }}
+                  >
+                    {birthdayCard.price}
+                  </Box>
+                  <Box 
+                    sx={{ 
+                      position: 'absolute', 
+                      top: 12, 
+                      left: 12, 
+                      bgcolor: 'secondary.main',
+                      color: 'white',
+                      py: 0.5,
+                      px: 1.5,
+                      borderRadius: 1,
+                      fontSize: '0.75rem',
+                      fontWeight: 'medium'
+                    }}
+                  >
+                    NEW
+                  </Box>
+                </Box>
+                
+                <CardContent sx={{ flexGrow: 1, p: 3 }}>
+                  <Typography variant="h6" gutterBottom sx={{ fontWeight: 600 }}>
+                    {birthdayCard.name}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary" paragraph>
+                    {birthdayCard.description}
+                  </Typography>
+                  
+                  <Box sx={{ mb: 2 }}>
+                    <Typography variant="subtitle2" gutterBottom sx={{ fontWeight: 600 }}>
+                      Features:
+                    </Typography>
+                    {birthdayCard.features.map((feature, index) => (
+                      <Typography key={index} variant="caption" display="block" color="text.secondary">
+                        • {feature}
+                      </Typography>
+                    ))}
                   </Box>
                   
-                  <CardContent sx={{ flexGrow: 1, p: 3 }}>
-                    <Typography variant="h6" gutterBottom sx={{ fontWeight: 600 }}>
-                      {template.name}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary" paragraph>
-                      {template.description}
-                    </Typography>
-                    
-                    <Box sx={{ display: 'flex', gap: 1, mt: 'auto' }}>
-                      <Button 
-                        variant="outlined" 
-                        color="primary"
-                        component={Link}
-                        href={`/order?template=${template.id}`}
-                        sx={{ flex: 1 }}
-                      >
-                        Customize
-                      </Button>
-                      <Button
-                        variant="contained"
-                        color="primary"
-                        onClick={() => handleAddToCart(template)}
-                        sx={{ flex: 1 }}
-                      >
-                        Add to Cart
-                      </Button>
-                    </Box>
-                  </CardContent>
-                </Card>
-              </Grid>
-            ))}
+                  <Box sx={{ display: 'flex', gap: 1, mt: 'auto' }}>
+                    <Button 
+                      variant="outlined" 
+                      color="primary"
+                      component={Link}
+                      href="/cards/birthday-card-1"
+                      size="small"
+                      sx={{ 
+                        flex: 1,
+                        fontSize: '0.75rem',
+                        py: 0.75
+                      }}
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      View Details
+                    </Button>
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      size="small"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        handleAddToCart();
+                      }}
+                      sx={{ 
+                        flex: 1,
+                        fontSize: '0.75rem',
+                        py: 0.75
+                      }}
+                    >
+                      Add to Cart
+                    </Button>
+                  </Box>
+                </CardContent>
+              </Card>
+            </Grid>
           </Grid>
           
           <Box sx={{ mt: 6, textAlign: 'center' }}>

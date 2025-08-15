@@ -1,0 +1,34 @@
+.birthdayCardCanvas {
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+  -webkit-user-select: none;
+  user-select: none;
+  width: 100%;
+  height: 100%;
+}
+
+.fullscreenCanvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Mobile optimizations */
+@media (max-width: 480px) {
+  .birthdayCardCanvas {
+    min-height: 300px;
+  }
+}
+
+/* Card link styling */
+.cardLink {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+.cardLink:hover {
+  text-decoration: none !important;
+}

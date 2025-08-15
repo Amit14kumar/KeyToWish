@@ -25,7 +25,7 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 // Create mock auth data
 const MOCK_USER: User = {
   id: '1',
-  name: 'John Doe',
+  name: 'Ipsita',
   email: 'john@example.com',
   avatar: 'https://randomuser.me/api/portraits/men/32.jpg',
 };
